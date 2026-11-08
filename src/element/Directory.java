@@ -19,7 +19,7 @@ public class Directory implements Element {
     }
 
     public List<Element> getElements() {
-        return elements;
+        return List.copyOf(elements);
     }
 
     public void addElement(Element element) {
