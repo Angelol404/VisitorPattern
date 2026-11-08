@@ -1,6 +1,6 @@
 import element.File;
 import element.Directory;
-
+import visitor.FileCountVisitor;
 import visitor.SizeCalculatorVisitor;
 import visitor.SearchVisitor;
 
@@ -57,5 +57,13 @@ public class Main {
                 System.out.println("Found: " + file.getName());
             }
         }
+        // Create FileCountVisitor
+        FileCountVisitor countVisitor = new FileCountVisitor();
+
+        // Count all files
+        root.accept(countVisitor);
+
+        System.out.println("\n===== FILE COUNTER =====");
+        System.out.println("Total files: " + countVisitor.getFileCount());
     }
 }
